@@ -8,12 +8,15 @@ public class RPG_Game {
 
     public static void start() {
         Boss boss = new Boss(700, 50);
+        Witcher witcher = new Witcher(130, 0);
+        Boxer boxer = new Boxer(100, 10);
+        Thor thor = new Thor(220, 15);
         Warrior warrior = new Warrior(250, 15);
         Hunter hunter = new Hunter(260, 10);
         Medic doctor = new Medic(230, 10, 15);
         Magic magic = new Magic(270, 20);
         Medic youngDr = new Medic(290, 20, 5);
-        Hero[] heroes = {warrior, hunter, doctor, magic, youngDr};
+        Hero[] heroes = {warrior, boxer, witcher, thor, hunter, doctor, magic, youngDr};
 
         printStatistics(boss, heroes);
 

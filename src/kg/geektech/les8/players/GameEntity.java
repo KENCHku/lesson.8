@@ -13,7 +13,7 @@ public abstract class GameEntity {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(int health) {//чтобы жизнь не уходила в ноль
         if (health < 0) {
             this.health = 0;
         } else {
