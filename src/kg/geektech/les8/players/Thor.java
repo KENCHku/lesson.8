@@ -9,7 +9,18 @@ public class Thor extends Hero {
 
     @Override
     public void applySuperAbility(Boss boss, Hero[] heroes) {
-        Random r = new Random();
+        if (new Random().nextInt(2)==1){
+            System.out.println("Thor deafen the Boss");
+            boss.setDeafen(true);
+        }else{
+            boss.setDeafen(false);
+        }
+
+
+    }
+}
+
+        /*Random r = new Random();
         int deafen = r.nextInt(2);
         int bossDamage = boss.getDamage();
         if (deafen == 1) {boss.setDamage(0);
@@ -17,5 +28,5 @@ public class Thor extends Hero {
          else {
              boss.setDamage(50);
         }
-    }
-}
+    }*/
+

@@ -8,6 +8,8 @@ public class RPG_Game {
 
     public static void start() {
         Boss boss = new Boss(700, 50);
+        Tank tank = new Tank(400, 5);
+        TrickyBastard bastard = new TrickyBastard(280, 20);
         Witcher witcher = new Witcher(130, 0);
         Boxer boxer = new Boxer(100, 10);
         Thor thor = new Thor(220, 15);
@@ -16,11 +18,16 @@ public class RPG_Game {
         Medic doctor = new Medic(230, 10, 15);
         Magic magic = new Magic(270, 20);
         Medic youngDr = new Medic(290, 20, 5);
-        Hero[] heroes = {warrior, boxer, witcher, thor, hunter, doctor, magic, youngDr};
+        Hero[] heroes = {warrior, tank, bastard, boxer, witcher, thor, hunter, doctor, magic, youngDr};
+
+
+        int roundNumber = 0;
 
         printStatistics(boss, heroes);
 
         while (!isGameFinished(boss, heroes)) {
+            roundNumber++;
+            System.out.println("ROUND: " + roundNumber);
             round(boss, heroes);
         }
 
@@ -28,7 +35,7 @@ public class RPG_Game {
 
     private static void round(Boss boss, Hero[] heroes) {
 
-        if (boss.getHealth() > 0) {
+        if (boss.getHealth() > 0 && !boss.isDeafen()) {
             bossHits(boss, heroes);
         }
 
